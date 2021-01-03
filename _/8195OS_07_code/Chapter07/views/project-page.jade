@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Mongoose Project Management
+  h2= projectName
+  p Created by: #{createdBy}
+  p Tasks: !{escape(tasks).replace(/\n/g, '<br/>')}
+  h3 Actions
+  ul
+    li
+      a(href="/project/new") Create a new project
+    li
+      a(href="/project/edit/#{projectID}") Edit project info
+    li
+      a(href="/project/delete/#{projectID}") Delete #{projectName}
+    li
+      a(href="/user") My profile
+

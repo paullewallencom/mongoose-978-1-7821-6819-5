@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1 Mongoose Project Management
+  h2= projectName
+  p Created by: #{createdBy.name}: 
+    a(href="mailto:#{createdBy.email}") #{createdBy.email}
+  h3 Tasks
+  if tasks.length > 0
+    ul
+      for task in tasks
+        li
+          a(href="/project/#{projectID}/task/edit/#{task._id}", title="#{task.taskDesc}") #{task.taskName}
+          |  - [
+          a(href="/project/#{projectID}/task/delete/#{task._id}", title="Delete #{task.taskName}") delete
+          ]
+  //- p Tasks: !{escape(tasks).replace(/\n/g, '<br/>')}
+  p
+    a(href="/project/#{projectID}/task/new") Add a task
+  h3 Actions
+  ul
+    li
+      a(href="/project/new") Create a new project
+    li
+      a(href="/project/edit/#{projectID}") Edit project info
+    li
+      a(href="/project/delete/#{projectID}") Delete #{projectName}
+    li
+      a(href="/user") My profile
+

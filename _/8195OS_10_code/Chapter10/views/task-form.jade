@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  if errors.length > 0
+    ul(class="errors")
+      each error in errors
+        li= error
+
+  p Project: #{projectName}
+
+  form(id="frmTask", method="post", action="")
+
+    input(type="hidden", name="userid", id="userid", value="#{userid}")
+    input(type="hidden", name="projectID", id="projectID", value="#{projectID}")
+    input(type="hidden", name="taskID", id="taskID", value="#{taskID}")
+
+    label(for="taskName") Task name
+    input(type="text", name="taskName", id="taskName", value="#{taskName}")
+    br
+    label(for="taskDesc", style="float:left") Description
+    textarea(name="taskDesc", id="taskDesc") #{taskDesc}
+    br
+    input(type="submit", value="#{buttonText}")
+  p
+    a(href="/project/#{projectID}") Back to project overview

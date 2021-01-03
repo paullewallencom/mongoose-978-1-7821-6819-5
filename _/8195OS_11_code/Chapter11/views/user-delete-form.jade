@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p #{name}, are you sure you want to permanently delete your account? The email address on this account is #{email}
+  form(id="formUserDelete", method="post", action="")
+    input(type="hidden", name="_id", id="_id", value="#{_id}")
+    input(type="submit", value="Yes, please delete it!")

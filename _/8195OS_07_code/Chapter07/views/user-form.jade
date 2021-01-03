@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  form(id="formUserProfile", method="post", action="")
+    label(for="FullName") Full name
+    input(type="text", name="FullName", id="FullName", value="#{name}")
+    label(for="Email") Email
+    input(type="email", name="Email", id="Email", value="#{email}")
+    input(type="submit", value="#{buttonText}")

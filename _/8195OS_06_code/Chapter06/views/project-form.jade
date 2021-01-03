@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  form(id="frmProject", method="post", action="")
+    p Project owner: #{userName}
+    input(type="hidden", name="userid", id="userid", value="#{userid}")
+    label(for="projectName") Project name
+    input(type="text", name="projectName", id="projectName")
+    br
+    label(for="tasks") Tasks
+    textarea(name="tasks", id="tasks")
+    br
+    input(type="submit", value="#{buttonText}")
